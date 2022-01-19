@@ -1,0 +1,30 @@
+
+<a class="Add Record" href="<?php echo $block->getUrl('frontgrid/index/add'); ?>">Add Record</a>
+
+<table>
+     <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Content</th>
+          <th>Age</th>
+          <th colspan="2">Action</th>
+     </tr>
+
+     <?php
+     $collection = $block->getResult();
+     foreach ($collection as $item) {
+     
+     ?>
+          <tr>
+               <td><?php echo $item->getData('id'); ?></td>
+               <td><?php echo $item->getData('name'); ?></td>
+               <td><?php echo $item->getData('phone'); ?></td>
+               <td><?php echo $item->getData('content'); ?></td>
+               <td><?php echo $item->getData('age'); ?></td>
+               <td><a href="<?php echo $block->getUrl('frontgrid/index/edit') . 'id/' . $item->getData('id'); ?>" class="action primary">Edit</a></td>
+               <td><a href="<?php echo $block->getUrl('frontgrid/index/delete') . '?id=' . $item->getData('id'); ?>" class="action primary">Delete</a></td>
+
+          </tr>
+     <?php } ?>
+</table>

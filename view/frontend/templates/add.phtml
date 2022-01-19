@@ -1,0 +1,23 @@
+<?php
+$id = $this->getRequest()->getParam('id');
+
+if (!empty($id)) {
+	$editArray = $this->getEditRecord($id);
+}
+?>
+<form method="post" action="<?php echo $this->getFormAction(); ?>">
+	<input type="hidden" value="<?php echo $id ?>" name="id"></input>
+	<label>Name </label>
+	<input type="text" value="<?php echo isset($editArray['name']) ? $editArray['name'] : '' ?>" name="name"></input>
+	<br>
+	<label>Phone </label>
+	<input type="text" value="<?php echo isset($editArray['phone']) ? $editArray['phone'] : '' ?>" name="phone"></input>
+	<br>
+	<label>Content </label>
+	<input type="text" value="<?php echo isset($editArray['content']) ? $editArray['content'] : '' ?>" name="content"></input>
+	<br>
+	<label>Age </label>
+	<input type="text" value="<?php echo isset($editArray['age']) ? $editArray['age'] : '' ?>" name="age"></input>
+	<br>
+	<input type="submit" name="submit" value="Submit"></input>
+</form>
